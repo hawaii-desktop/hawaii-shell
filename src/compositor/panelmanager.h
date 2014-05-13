@@ -37,7 +37,7 @@ public:
                  QObject *parent = 0);
 
 protected:
-    void panel_manager_set_panel(Resource *resource,
+    void hawaii_panel_manager_set_panel(Resource *resource,
                                  uint32_t id,
                                  struct ::wl_resource *surface_resource) Q_DECL_OVERRIDE;
 };

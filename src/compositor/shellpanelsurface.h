@@ -38,19 +38,19 @@ public:
     ShellPanelSurface(QWaylandSurface *surface);
 
 protected:
-    void panel_set_alignment(Resource *resource,
+    void hawaii_panel_set_alignment(Resource *resource,
                              uint32_t alignment) Q_DECL_OVERRIDE;
-    void panel_set_offset(Resource *resource,
+    void hawaii_panel_set_offset(Resource *resource,
                           uint32_t offset) Q_DECL_OVERRIDE;
-    void panel_set_thickness(Resource *resource,
+    void hawaii_panel_set_thickness(Resource *resource,
                              uint32_t thickness) Q_DECL_OVERRIDE;
-    void panel_set_length(Resource *resource,
+    void hawaii_panel_set_length(Resource *resource,
                           uint32_t length) Q_DECL_OVERRIDE;
-    void panel_set_min_length(Resource *resource,
+    void hawaii_panel_set_min_length(Resource *resource,
                               uint32_t min_length) Q_DECL_OVERRIDE;
-    void panel_set_max_length(Resource *resource,
+    void hawaii_panel_set_max_length(Resource *resource,
                               uint32_t max_length) Q_DECL_OVERRIDE;
-    void panel_dock(Resource *resource, uint32_t edge,
+    void hawaii_panel_dock(Resource *resource, uint32_t edge,
                     struct ::wl_resource *output) Q_DECL_OVERRIDE;
 
 private:

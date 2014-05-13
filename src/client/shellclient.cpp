@@ -44,12 +44,12 @@ ShellClient::ShellClient(QObject *parent)
 {
 }
 
-void ShellClient::shell_loaded()
+void ShellClient::hawaii_shell_loaded()
 {
     Q_EMIT loaded();
 }
 
-void ShellClient::shell_configure(struct ::wl_surface *target,
+void ShellClient::hawaii_shell_configure(struct ::wl_surface *target,
                                          int32_t width,
                                          int32_t height)
 {
@@ -68,12 +68,12 @@ void ShellClient::shell_configure(struct ::wl_surface *target,
     }
 }
 
-void ShellClient::shell_prepare_lock_surface()
+void ShellClient::hawaii_shell_prepare_lock_surface()
 {
     Q_EMIT prepareLockSurface();
 }
 
-void ShellClient::shell_grab_cursor(uint32_t cursor)
+void ShellClient::hawaii_shell_grab_cursor(uint32_t cursor)
 {
     QCursor qcursor;
 
@@ -119,7 +119,7 @@ void ShellClient::shell_grab_cursor(uint32_t cursor)
     Q_EMIT cursorChanged(qcursor);
 }
 
-void ShellClient::shell_window_mapped(struct ::hawaii_window *id,
+void ShellClient::hawaii_shell_window_mapped(struct ::hawaii_window *id,
                                              const QString &title,
                                              const QString &identifier,
                                              int32_t state)
@@ -131,17 +131,17 @@ void ShellClient::shell_window_mapped(struct ::hawaii_window *id,
     Q_EMIT windowAdded(window);
 }
 
-void ShellClient::shell_window_switching_started()
+void ShellClient::hawaii_shell_window_switching_started()
 {
     Q_EMIT windowSwitchingStarted();
 }
 
-void ShellClient::shell_window_switching_finished()
+void ShellClient::hawaii_shell_window_switching_finished()
 {
     Q_EMIT windowSwitchingFinished();
 }
 
-void ShellClient::shell_window_switched(struct ::hawaii_window *window)
+void ShellClient::hawaii_shell_window_switched(struct ::hawaii_window *window)
 {
     QList<Window *> list = ShellManager::instance()->controller()->d_ptr->windowsList;
 
@@ -154,7 +154,7 @@ void ShellClient::shell_window_switched(struct ::hawaii_window *window)
     }
 }
 
-void ShellClient::shell_workspace_added(struct ::hawaii_workspace *id,
+void ShellClient::hawaii_shell_workspace_added(struct ::hawaii_workspace *id,
                                                int32_t active)
 {
     Workspace *workspace = new Workspace(active != 0);

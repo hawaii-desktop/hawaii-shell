@@ -46,11 +46,11 @@ public:
     QWaylandSurface *surfaceAt(const QPointF &point, QPointF *local);
 
 protected:
-    void shell_surface_set_popup(Resource *resource, uint32_t id,
+    void hawaii_shell_surface_set_popup(Resource *resource, uint32_t id,
                                  struct ::wl_resource *parent_resource,
                                  struct ::wl_resource *surface_resource,
                                  int32_t x, int32_t y) Q_DECL_OVERRIDE;
-    void shell_surface_set_dialog(Resource *resource,
+    void hawaii_shell_surface_set_dialog(Resource *resource,
                                   struct ::wl_resource *output_resource,
                                   struct ::wl_resource *surface) Q_DECL_OVERRIDE;
 

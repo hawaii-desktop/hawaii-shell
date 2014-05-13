@@ -180,9 +180,9 @@ void ClientWindow::unminimize()
     }
 }
 
-void ClientWindow::window_set_state(Resource *resource, int32_t newState)
+void ClientWindow::hawaii_window_set_state(Resource *resource, int32_t newState)
 {
-    ClientWindow *window = static_cast<ClientWindow *>(resource->window);
+    ClientWindow *window = static_cast<ClientWindow *>(resource->hawaii_window);
     int32_t state = window->state();
 
     if (state & HAWAII_SHELL_WINDOW_STATE_MINIMIZED && !(newState & HAWAII_SHELL_WINDOW_STATE_MINIMIZED)) {

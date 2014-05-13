@@ -36,7 +36,7 @@ public:
     virtual ~PanelSurface();
 
 protected:
-    void panel_docked() Q_DECL_OVERRIDE;
+    void hawaii_panel_docked() Q_DECL_OVERRIDE;
 };
 
 #endif // PANELSURFACE_H

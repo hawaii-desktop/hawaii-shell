@@ -52,7 +52,7 @@ public:
     void unminimize();
 
 protected:
-    void window_set_state(Resource *resource,
+    void hawaii_window_set_state(Resource *resource,
                           int32_t newState) Q_DECL_OVERRIDE;
 
 private:

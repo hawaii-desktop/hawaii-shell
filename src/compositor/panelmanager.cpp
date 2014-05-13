@@ -38,7 +38,7 @@ PanelManager::PanelManager(struct ::wl_display *display, QObject *parent)
 {
 }
 
-void PanelManager::panel_manager_set_panel(Resource *resource,
+void PanelManager::hawaii_panel_manager_set_panel(Resource *resource,
                                            uint32_t id,
                                            struct ::wl_resource *surface_resource)
 {
