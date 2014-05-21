@@ -44,49 +44,49 @@ ShellPanelSurface::ShellPanelSurface(QWaylandSurface *surface)
     m_compositor = static_cast<Compositor *>(surface->compositor());
 }
 
-void ShellPanelSurface::panel_set_alignment(Resource *resource,
+void ShellPanelSurface::hawaii_panel_set_alignment(Resource *resource,
                                             uint32_t alignment)
 {
     Q_UNUSED(resource);
     m_alignment = alignment;
 }
 
-void ShellPanelSurface::panel_set_offset(Resource *resource,
+void ShellPanelSurface::hawaii_panel_set_offset(Resource *resource,
                                          uint32_t offset)
 {
     Q_UNUSED(resource);
     m_offset = offset;
 }
 
-void ShellPanelSurface::panel_set_thickness(Resource *resource,
+void ShellPanelSurface::hawaii_panel_set_thickness(Resource *resource,
                                             uint32_t thickness)
 {
     Q_UNUSED(resource);
     m_thickness = thickness;
 }
 
-void ShellPanelSurface::panel_set_length(Resource *resource,
+void ShellPanelSurface::hawaii_panel_set_length(Resource *resource,
                                          uint32_t length)
 {
     Q_UNUSED(resource);
     m_length = length;
 }
 
-void ShellPanelSurface::panel_set_min_length(Resource *resource,
+void ShellPanelSurface::hawaii_panel_set_min_length(Resource *resource,
                                              uint32_t min_length)
 {
     Q_UNUSED(resource);
     m_minLength = min_length;
 }
 
-void ShellPanelSurface::panel_set_max_length(Resource *resource,
+void ShellPanelSurface::hawaii_panel_set_max_length(Resource *resource,
                                              uint32_t max_length)
 {
     Q_UNUSED(resource);
     m_maxLength = max_length;
 }
 
-void ShellPanelSurface::panel_dock(Resource *resource,
+void ShellPanelSurface::hawaii_panel_dock(Resource *resource,
                                    uint32_t edge,
                                    struct ::wl_resource *output)
 {

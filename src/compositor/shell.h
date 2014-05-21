@@ -63,43 +63,43 @@ Q_SIGNALS:
     void workspaceAdded();
 
 protected:
-    void shell_bind_resource(Resource *resource) Q_DECL_OVERRIDE;
+    void hawaii_shell_bind_resource(Resource *resource) Q_DECL_OVERRIDE;
 
-    void shell_add_key_binding(Resource *resource, uint32_t id,
+    void hawaii_shell_add_key_binding(Resource *resource, uint32_t id,
                                uint32_t key, uint32_t modifiers) Q_DECL_OVERRIDE;
 
-    void shell_set_position(Resource *resource,
+    void hawaii_shell_set_position(Resource *resource,
                             struct ::wl_resource *surface,
                             int32_t x, int32_t y) Q_DECL_OVERRIDE;
 
-    void shell_set_lock_surface(Resource *resource,
+    void hawaii_shell_set_lock_surface(Resource *resource,
                                 struct ::wl_resource *surface_resource) Q_DECL_OVERRIDE;
 
-    void shell_quit(Resource *resource) Q_DECL_OVERRIDE;
+    void hawaii_shell_quit(Resource *resource) Q_DECL_OVERRIDE;
 
-    void shell_lock(Resource *resource) Q_DECL_OVERRIDE;
-    void shell_unlock(Resource *resource) Q_DECL_OVERRIDE;
+    void hawaii_shell_lock(Resource *resource) Q_DECL_OVERRIDE;
+    void hawaii_shell_unlock(Resource *resource) Q_DECL_OVERRIDE;
 
-    void shell_set_background(Resource *resource,
+    void hawaii_shell_set_background(Resource *resource,
                               struct ::wl_resource *output_resource,
                               struct ::wl_resource *surface) Q_DECL_OVERRIDE;
-    void shell_set_desktop(Resource *resource,
+    void hawaii_shell_set_desktop(Resource *resource,
                            struct ::wl_resource *output_resource,
                            struct ::wl_resource *surface) Q_DECL_OVERRIDE;
 
-    void shell_set_overlay(Resource *resource,
+    void hawaii_shell_set_overlay(Resource *resource,
                            struct ::wl_resource *surface) Q_DECL_OVERRIDE;
 
-    void shell_set_grab_surface(Resource *resource,
+    void hawaii_shell_set_grab_surface(Resource *resource,
                                 struct ::wl_resource *surface_resource) Q_DECL_OVERRIDE;
 
-    void shell_desktop_ready(Resource *resource) Q_DECL_OVERRIDE;
+    void hawaii_shell_desktop_ready(Resource *resource) Q_DECL_OVERRIDE;
 
-    void shell_minimize_windows(Resource *resource) Q_DECL_OVERRIDE;
-    void shell_restore_windows(Resource *resource) Q_DECL_OVERRIDE;
+    void hawaii_shell_minimize_windows(Resource *resource) Q_DECL_OVERRIDE;
+    void hawaii_shell_restore_windows(Resource *resource) Q_DECL_OVERRIDE;
 
-    void shell_add_workspace(Resource *resource) Q_DECL_OVERRIDE;
-    void shell_select_workspace(Resource *resource,
+    void hawaii_shell_add_workspace(Resource *resource) Q_DECL_OVERRIDE;
+    void hawaii_shell_select_workspace(Resource *resource,
                                 struct ::wl_resource *workspace) Q_DECL_OVERRIDE;
 
 private:

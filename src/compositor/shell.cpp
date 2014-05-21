@@ -108,12 +108,12 @@ void Shell::unlockSession()
     m_prepareEventSent = true;
 }
 
-void Shell::shell_bind_resource(Resource *resource)
+void Shell::hawaii_shell_bind_resource(Resource *resource)
 {
     send_loaded(resource->handle);
 }
 
-void Shell::shell_add_key_binding(Resource *resource, uint32_t id,
+void Shell::hawaii_shell_add_key_binding(Resource *resource, uint32_t id,
                                   uint32_t key, uint32_t modifiers)
 {
     Q_UNUSED(resource);
@@ -124,7 +124,7 @@ void Shell::shell_add_key_binding(Resource *resource, uint32_t id,
     m_keyBindings.append(keyBinding);
 }
 
-void Shell::shell_set_position(Resource *resource,
+void Shell::hawaii_shell_set_position(Resource *resource,
                                struct ::wl_resource *surface_resource,
                                int32_t x, int32_t y)
 {
@@ -135,7 +135,7 @@ void Shell::shell_set_position(Resource *resource,
     surface->setWindowProperty(QStringLiteral("position"), QPointF(x, y));
 }
 
-void Shell::shell_set_lock_surface(Resource *resource,
+void Shell::hawaii_shell_set_lock_surface(Resource *resource,
                                    struct ::wl_resource *surface_resource)
 {
     Q_UNUSED(resource);
@@ -163,12 +163,12 @@ void Shell::shell_set_lock_surface(Resource *resource,
     });
 }
 
-void Shell::shell_quit(Resource *resource)
+void Shell::hawaii_shell_quit(Resource *resource)
 {
     Q_UNUSED(resource);
 }
 
-void Shell::shell_lock(Resource *resource)
+void Shell::hawaii_shell_lock(Resource *resource)
 {
     Q_UNUSED(resource);
 
@@ -179,7 +179,7 @@ void Shell::shell_lock(Resource *resource)
     m_compositor->setState(Compositor::Idle);
 }
 
-void Shell::shell_unlock(Resource *resource)
+void Shell::hawaii_shell_unlock(Resource *resource)
 {
     Q_UNUSED(resource);
 
@@ -191,7 +191,7 @@ void Shell::shell_unlock(Resource *resource)
         resumeDesktop();
 }
 
-void Shell::shell_set_background(Resource *resource,
+void Shell::hawaii_shell_set_background(Resource *resource,
                                  struct ::wl_resource *output_resource,
                                  struct ::wl_resource *surface_resource)
 {
@@ -207,7 +207,7 @@ void Shell::shell_set_background(Resource *resource,
     surface->setWindowProperty(QStringLiteral("position"), coords);
 }
 
-void Shell::shell_set_overlay(Resource *resource,
+void Shell::hawaii_shell_set_overlay(Resource *resource,
                               struct ::wl_resource *surface_resource)
 {
     Q_UNUSED(resource);
@@ -221,7 +221,7 @@ void Shell::shell_set_overlay(Resource *resource,
     surface->setWindowProperty(QStringLiteral("position"), coords);
 }
 
-void Shell::shell_set_desktop(Resource *resource,
+void Shell::hawaii_shell_set_desktop(Resource *resource,
                               struct ::wl_resource *output_resource,
                               struct ::wl_resource *surface_resource)
 {
@@ -237,35 +237,35 @@ void Shell::shell_set_desktop(Resource *resource,
     surface->setWindowProperty(QStringLiteral("position"), coords);
 }
 
-void Shell::shell_set_grab_surface(Resource *resource,
+void Shell::hawaii_shell_set_grab_surface(Resource *resource,
                                    struct ::wl_resource *surface_resource)
 {
     Q_UNUSED(resource);
 }
 
-void Shell::shell_desktop_ready(Resource *resource)
+void Shell::hawaii_shell_desktop_ready(Resource *resource)
 {
     Q_UNUSED(resource);
     Q_EMIT ready();
 }
 
-void Shell::shell_minimize_windows(Resource *resource)
+void Shell::hawaii_shell_minimize_windows(Resource *resource)
 {
     Q_UNUSED(resource);
 }
 
-void Shell::shell_restore_windows(Resource *resource)
+void Shell::hawaii_shell_restore_windows(Resource *resource)
 {
     Q_UNUSED(resource);
 }
 
-void Shell::shell_add_workspace(Resource *resource)
+void Shell::hawaii_shell_add_workspace(Resource *resource)
 {
     Q_UNUSED(resource);
     Q_EMIT workspaceAdded();
 }
 
-void Shell::shell_select_workspace(Resource *resource,
+void Shell::hawaii_shell_select_workspace(Resource *resource,
                                    struct ::wl_resource *workspace)
 {
     Q_UNUSED(resource);

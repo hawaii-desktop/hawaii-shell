@@ -39,7 +39,7 @@ PanelSurface::~PanelSurface()
         hawaii_panel_destroy(object());
 }
 
-void PanelSurface::panel_docked()
+void PanelSurface::hawaii_panel_docked()
 {
     qDebug() << "Panel docked";
 }

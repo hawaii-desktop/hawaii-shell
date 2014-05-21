@@ -72,7 +72,7 @@ QWaylandSurface *ShellSurface::surfaceAt(const QPointF &point, QPointF *local)
     return 0;
 }
 
-void ShellSurface::shell_surface_set_popup(Resource *resource,
+void ShellSurface::hawaii_shell_surface_set_popup(Resource *resource,
                                            uint32_t id,
                                            struct ::wl_resource *parent_resource,
                                            struct ::wl_resource *surface_resource,
@@ -107,7 +107,7 @@ void ShellSurface::shell_surface_set_popup(Resource *resource,
     });
 }
 
-void ShellSurface::shell_surface_set_dialog(Resource *resource,
+void ShellSurface::hawaii_shell_surface_set_dialog(Resource *resource,
                                             struct ::wl_resource *output_resource,
                                             struct ::wl_resource *surface_resource)
 {
