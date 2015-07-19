@@ -6,6 +6,7 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/3rdparty
 )
 
+if( ENABLE_SYSTEMD)
 set(SOURCES
     application.cpp
     main.cpp
@@ -27,6 +28,26 @@ set(SOURCES
     session/authenticator.cpp
     session/sessioninterface.cpp
 )
+else()
+set(SOURCES
+    application.cpp
+    main.cpp
+    processlauncher.cpp
+    screensaver.cpp
+    sessionmanager.cpp
+    loginmanager/loginmanager.cpp
+    loginmanager/loginmanagerbackend.cpp
+    loginmanager/fakebackend.cpp
+    powermanager/powermanager.cpp
+    powermanager/powermanager.h
+    powermanager/powermanagerbackend.cpp
+    powermanager/powermanagerbackend.h
+    powermanager/upowerpowerbackend.cpp
+    powermanager/upowerpowerbackend.h
+    session/authenticator.cpp
+    session/sessioninterface.cpp
+)
+endif()
 
 qt5_add_dbus_adaptor(SOURCES org.hawaiios.ProcessLauncher.xml
                      processlauncher.h ProcessLauncher

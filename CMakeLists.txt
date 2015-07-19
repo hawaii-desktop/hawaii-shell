@@ -18,7 +18,7 @@ include(CPack)
 add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 
 # Options
-option(ENABLE_SYSTEMD "Enables systemd support" OFF)
+option(ENABLE_SYSTEMD "Enables systemd support" ON)
 option(ENABLE_ALSA "Enables Alsa mixer backend" ON)
 option(ENABLE_PULSEAUDIO "Enables PulseAudio mixer backend" ON)
 option(ENABLE_NETWORK_MANAGER "Enables network indicator based on NetworkManager" ON)
@@ -38,11 +38,13 @@ include(KDECMakeSettings)
 find_package(PkgConfig)
 
 # systemd user unit directory
+if (ENABLE_SYSTEMD)
 if (NOT DEFINED SYSTEMD_USER_UNIT_DIR)
     execute_process(COMMAND ${PKG_CONFIG_EXECUTABLE} --variable=systemduserunitdir systemd OUTPUT_VARIABLE SYSTEMD_USER_UNIT_DIR)
     string(REGEX REPLACE "[ \t\n]+" "" SYSTEMD_USER_UNIT_DIR ${SYSTEMD_USER_UNIT_DIR})
 endif()
 message(STATUS "systemd user unit directory: ${SYSTEMD_USER_UNIT_DIR}")
+endif()
 
 # Require at least gcc 4.8
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
@@ -74,7 +76,7 @@ endif()
 
 # Assume release build by default
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "" FORCE)
+  set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "" FORCE)
 endif()
 
 # Minimum version requirements
@@ -148,3 +150,4 @@ greenisland_install_shell(org.hawaiios.desktop shell)
 
 # Display featute summary
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
