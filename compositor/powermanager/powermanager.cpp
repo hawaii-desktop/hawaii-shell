@@ -27,7 +27,9 @@
 #include <QtDBus/QDBusConnectionInterface>
 
 #include "powermanager.h"
+#ifdef ENABLE_SYSTEMD
 #include "systemdpowerbackend.h"
+#endif
 #include "upowerpowerbackend.h"
 
 PowerManager::PowerManager(QObject *parent)
@@ -35,9 +37,10 @@ PowerManager::PowerManager(QObject *parent)
 {
     QDBusConnectionInterface *interface = QDBusConnection::systemBus().interface();
 
+#ifdef ENABLE_SYSTEMD
     if (interface->isServiceRegistered(SystemdPowerBackend::service()))
         m_backends.append(new SystemdPowerBackend());
-
+#endif
     if (interface->isServiceRegistered(UPowerPowerBackend::service()))
         m_backends.append(new UPowerPowerBackend());
 
@@ -120,10 +123,14 @@ void PowerManager::serviceRegistered(const QString &service)
         return;
 
     // Otherwise add the most appropriate backend
+#ifdef ENABLE_SYSTEMD
     if (service == SystemdPowerBackend::service()) {
         m_backends.append(new SystemdPowerBackend());
         Q_EMIT capabilitiesChanged();
     } else if (service == UPowerPowerBackend::service()) {
+#else
+    if (service == UPowerPowerBackend::service()) {
+#endif
         m_backends.append(new UPowerPowerBackend());
         Q_EMIT capabilitiesChanged();
     }
@@ -139,12 +146,17 @@ void PowerManager::serviceUnregistered(const QString &service)
     for (int i = 0; i < m_backends.size(); i++) {
         PowerManagerBackend *backend = m_backends.at(i);
 
+#ifdef ENABLE_SYSTEMD
         if (service == SystemdPowerBackend::service() && backend->name() == QStringLiteral("systemd")) {
             delete m_backends.takeAt(i);
             Q_EMIT capabilitiesChanged();
             return;
         } else if (service == UPowerPowerBackend::service() && backend->name() == QStringLiteral("upower")) {
-            delete m_backends.takeAt(i);
+#else
+	if (service == UPowerPowerBackend::service() && backend->name() == QStringLiteral("upower")) {
+
+#endif
+	    delete m_backends.takeAt(i);
             Q_EMIT capabilitiesChanged();
             return;
         }

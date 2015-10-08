@@ -26,16 +26,19 @@
 
 #include "fakebackend.h"
 #include "loginmanager.h"
+#ifdef ENABLE_SYSTEMD
 #include "logindbackend.h"
-
+#endif
 Q_LOGGING_CATEGORY(LOGINMANAGER, "hawaii.loginmanager")
 
 LoginManager::LoginManager(SessionManager *sm, QObject *parent)
     : QObject(parent)
 {
     // Create backend
+#ifdef ENABLE_SYSTEMD
     m_backend = LogindBackend::create(sm);
     if (!m_backend)
+#endif
         m_backend = FakeBackend::create();
     qCDebug(LOGINMANAGER) << "Using" << m_backend->name() << "login manager backend";
 
