@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/hawaii-desktop/hawaii-shell.png?label=ready&title=Ready)](https://waffle.io/hawaii-desktop/hawaii-shell)
 Hawaii Shell
 ============
 
