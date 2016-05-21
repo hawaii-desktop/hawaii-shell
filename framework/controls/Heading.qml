@@ -26,7 +26,7 @@
  ***************************************************************************/
 
 import QtQuick 2.1
-import Qt.labs.controls 1.0 as LabsControls
+import Qt.labs.controls 1.0
 import Hawaii.Themes 1.0
 
 /**
@@ -53,7 +53,7 @@ import Hawaii.Themes 1.0
  * Label. See Qt Labs Controls Label and primitive QML Text element API for
  * additional properties, methods and signals.
  */
-LabsControls.Label {
+Label {
     id: root
 
     /**
