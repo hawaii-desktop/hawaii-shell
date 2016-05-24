@@ -25,10 +25,10 @@
  ***************************************************************************/
 
 import QtQuick 2.0
-import Qt.labs.templates 1.0 as LabsTemplates
+import Fluid.ControlsWrapper 1.0
 import Fluid.Ui 1.0 as FluidUi
 
-LabsTemplates.SwipeView {
+SwipeView {
     id: swipeView
     contentItem: ListView {
         model: swipeView.contentModel

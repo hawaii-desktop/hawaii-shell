@@ -27,7 +27,7 @@
 import QtQuick 2.5
 import QtQuick.Window 2.2
 import Fluid.ControlsWrapper 1.0
-import Qt.labs.controls.material 1.0 as LabsMaterial
+import Fluid.ControlsWrapper.material 1.0
 import GreenIsland 1.0 as GreenIsland
 import Fluid.Ui 1.0 as FluidUi
 import "../screens"
@@ -66,9 +66,9 @@ GreenIsland.WaylandOutput {
         maximumWidth: nativeScreen.width
         maximumHeight: nativeScreen.height
 
-        LabsMaterial.Material.theme: LabsMaterial.Material.Dark
-        LabsMaterial.Material.primary: LabsMaterial.Material.Blue
-        LabsMaterial.Material.accent: LabsMaterial.Material.LightBlue
+        Material.theme: Material.Dark
+        Material.primary: Material.Blue
+        Material.accent: Material.LightBlue
 
         Connections {
             target: SessionInterface
