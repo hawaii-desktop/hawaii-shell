@@ -30,7 +30,7 @@
 #include <QtCore/QStandardPaths>
 #include <QtWidgets/QApplication>
 
-#include <Hawaii/greenisland_version.h>
+#include <Hawaii/GreenIsland/greenisland_version.h>
 #include <Hawaii/GSettings/QGSettings>
 
 #include "application.h"
